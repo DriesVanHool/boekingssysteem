@@ -1,6 +1,0 @@
-﻿namespace Boekingssysteem
-{
-    public class view
-    {
-    }
-}
