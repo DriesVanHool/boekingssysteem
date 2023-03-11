@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {}
+    "C:\\Users\\Gilles Lagrilli\\Documents\\School\\Projecten van het werkveld\\Project\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {
+    "C:\\Users\\Gilles Lagrilli\\Documents\\School\\Projecten van het werkveld\\Project\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
+        "projectUniqueName": "C:\\Users\\Gilles Lagrilli\\Documents\\School\\Projecten van het werkveld\\Project\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
         "projectName": "Boekingssysteem",
-        "projectPath": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
-        "packagesPath": "C:\\Users\\Dre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\obj\\",
+        "projectPath": "C:\\Users\\Gilles Lagrilli\\Documents\\School\\Projecten van het werkveld\\Project\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
+        "packagesPath": "C:\\Users\\Gilles Lagrilli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gilles Lagrilli\\Documents\\School\\Projecten van het werkveld\\Project\\boekingssysteem\\Boekingssysteem\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gilles Lagrilli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,8 +69,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -78,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.309\\RuntimeIdentifierGraph.json"
         }
       }
     }
