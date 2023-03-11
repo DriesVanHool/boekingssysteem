@@ -16,7 +16,7 @@ namespace Boekingssysteem.Models
         public string Opmerking { get; set; }
 
         [Required]
-        public int Rnummer { get; set; }
+        public string Rnummer { get; set; }
 
         [ForeignKey("Rnummer")]
         public Gebruiker Gebruiker { get; set; }
