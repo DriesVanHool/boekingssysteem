@@ -10,7 +10,7 @@ namespace Boekingssysteem.Models
         [Key]
         public string Rnummer { get; set; }
         [Required]
-        public string Voonraam { get; set; }
+        public string Voornaam { get; set; }
         [Required]
         public string Achternaam { get; set; }
         [Required]
