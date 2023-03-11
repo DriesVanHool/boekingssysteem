@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {}
+    "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {
+    "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
+        "projectUniqueName": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
         "projectName": "Boekingssysteem",
-        "projectPath": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
+        "projectPath": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
         "packagesPath": "C:\\Users\\Dre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\Boekingssysteem\\obj\\",
+        "outputPath": "C:\\Users\\Dre\\OneDrive\\Desktop\\Boekingssysteem\\boekingssysteem\\Boekingssysteem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,26 +39,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.20, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[3.1.20, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.20, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.20, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
