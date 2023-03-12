@@ -82,6 +82,10 @@ body {
     padding-top:15px;
 }
 
-.KalenderTable td {
-    text-align: center;
+.KalenderTable{
+    cursor: pointer !important;
+}
+
+.KalenderTable td:hover {
+    background-color: #ffebee !important;
 }
