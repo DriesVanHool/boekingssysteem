@@ -81,3 +81,7 @@ body {
 .formRow{
     padding-top:15px;
 }
+
+.KalenderTable td {
+    text-align: center;
+}

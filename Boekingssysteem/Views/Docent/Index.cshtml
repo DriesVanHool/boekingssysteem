@@ -1,5 +1,104 @@
 ﻿@{
-    ViewData["Title"] = "Status beheer";
+    ViewData["Title"] = "Mijn staus";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-6">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4" style="text-align:center">
+        <h5>Status wijzigen</h5>
+        <button type="button" id="statusBtn" class="btn btn-success">Aanwezig</button>
+    </div>
+
+    <div class="col-md-4"></div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h6>Afwezigheids kalender</h6>
+    </div>
+    <div class="col-md-3 formRow">
+        <div class="form-group">
+            <select class="form-select" id="exampleSelect1">
+            <option>Maand</option>
+            <option>Januari</option>
+            <option>Februari</option>
+            </select>
+        </div>
+     </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table KalenderTable">
+            <thead>
+                <tr>
+                    <th scope="col">Maandag</th>
+                    <th scope="col">Dinsdag</th>
+                    <th scope="col">Woensdag</th>
+                    <th scope="col">Donderdag</th>
+                    <th scope="col">Vrijdag</th>
+                    <th scope="col">Zaterdag</th>
+                    <th scope="col">Zondag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td class="table-success">16</td>
+                    <td class="table-success">17</td>
+                    <td>18</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td class="table-success">20</td>
+                    <td class="table-success">21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <button type="button" class="btn btn-primary" style="max-width:200px">Bevestig</button>
+</div>
