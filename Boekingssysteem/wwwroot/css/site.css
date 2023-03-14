@@ -69,3 +69,23 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.statusBadge{
+    width:100px !important;
+}
+
+.row{
+    padding-top: 25px !important;
+}
+
+.formRow{
+    padding-top:15px;
+}
+
+.KalenderTable{
+    cursor: pointer !important;
+}
+
+.KalenderTable td:hover {
+    background-color: #ffebee !important;
+}

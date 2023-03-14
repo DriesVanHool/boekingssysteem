@@ -1,11 +1,3 @@
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.csproj.AssemblyReference.cache
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.AssemblyInfoInputs.cache
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.AssemblyInfo.cs
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.csproj.CoreCompileInputs.cache
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.RazorAssemblyInfo.cache
-C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.RazorAssemblyInfo.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\Boekingssysteem.exe
@@ -56,6 +48,14 @@ C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bi
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.csproj.AssemblyReference.cache
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.AssemblyInfoInputs.cache
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.AssemblyInfo.cs
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.csproj.CoreCompileInputs.cache
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.RazorAssemblyInfo.cache
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.RazorAssemblyInfo.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\staticwebassets\Boekingssysteem.StaticWebAssets.Manifest.cache
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\staticwebassets\Boekingssysteem.StaticWebAssets.Pack.cache
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.Boekingssysteem.Microsoft.AspNetCore.StaticWebAssets.props
@@ -72,8 +72,12 @@ C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\ob
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Docenten.cshtml.g.cs
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Richtingen.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Login\Reset.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -86,6 +90,7 @@ C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\ob
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.dll
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.pdb
 C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boekingssysteem\Boekingssysteem\bin\Debug\netcoreapp3.1\Boekingssysteem.exe
@@ -169,3 +174,6 @@ C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boe
 C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.dll
 C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.pdb
 C:\Users\Gilles Lagrilli\Documents\School\Projecten van het werkveld\Project\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Boekingssysteem.genruntimeconfig.cache
+=======
+C:\Users\Dre\OneDrive\Desktop\Boekingssysteem\boekingssysteem\Boekingssysteem\obj\Debug\netcoreapp3.1\Razor\Views\Docent\Index.cshtml.g.cs
+>>>>>>> origin/views
