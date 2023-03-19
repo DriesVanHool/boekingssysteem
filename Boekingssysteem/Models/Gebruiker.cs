@@ -22,6 +22,8 @@ namespace Boekingssysteem.Models
         [ForeignKey("RolId")]
         public Rol Rol { get; set; }
 
-        public ICollection<DocentRichting> Richtingen { get; set; }
+        public ICollection<DocentRichting> DocentRichtingen { get; set; }
+
+        public ICollection<Afwezigheid> Afwezigheden { get; set; }
     }
 }

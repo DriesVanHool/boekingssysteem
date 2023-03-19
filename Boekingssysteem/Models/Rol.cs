@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Boekingssysteem.Models
@@ -10,5 +11,7 @@ namespace Boekingssysteem.Models
         public int RolId { get; set; }
         [Required]
         public string Naam { get; set; }
+
+        public ICollection<Gebruiker> Gebruikers { get; set; }
     }
 }
