@@ -12,6 +12,6 @@ namespace Boekingssysteem.Models
         [Required]
         public string Naam { get; set; }
 
-        public ICollection<DocentRichting> Docenten { get; set; }
+        public ICollection<DocentRichting> DocentRichtingen { get; set; }
     }
 }

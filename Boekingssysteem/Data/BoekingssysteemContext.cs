@@ -19,6 +19,30 @@ namespace Boekingssysteem.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("BS");
+
+            modelBuilder.Entity<DocentRichting>()
+                 .HasOne(d => d.Gebruiker)
+                 .WithMany(x => x.DocentRichtingen)
+                 .HasForeignKey(r => r.Rnummer)
+                 .IsRequired();
+
+            modelBuilder.Entity<DocentRichting>()
+                 .HasOne(d => d.Richting)
+                 .WithMany(x => x.DocentRichtingen)
+                 .HasForeignKey(r => r.RichtingId)
+                 .IsRequired();
+
+            modelBuilder.Entity<Gebruiker>()
+                 .HasOne(d => d.Rol)
+                 .WithMany(x => x.Gebruikers)
+                 .HasForeignKey(r => r.RolId)
+                 .IsRequired();
+
+            modelBuilder.Entity<Afwezigheid>()
+                 .HasOne(d => d.Gebruiker)
+                 .WithMany(x => x.Afwezigheden)
+                 .HasForeignKey(r => r.Rnummer)
+                 .IsRequired();
         }
     }
 }
