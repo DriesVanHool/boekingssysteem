@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿let dropdownBoxes = document.querySelectorAll('select');
+let forms = document.querySelectorAll('form');
 
-// Write your JavaScript code.
+forms.forEach((e) => {
+    e.addEventListener('submit', (event) => {
+        event.preventDefault();
+    })
+})
+
+for (var i = 0; i < dropdownBoxes.length; i++) {
+    dropdownBoxes[i].addEventListener('change', (e) => {
+        let selectId = '#' + e.target.id.split(" ")[1];
+        let form = document.querySelector(selectId)
+
+        form.submit();
+    });
+}
+
