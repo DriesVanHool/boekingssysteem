@@ -12,6 +12,10 @@ a {
   color: #0366d6;
 }
 
+.bg-secondary {
+    background-color: rgb(27, 110, 194) !important
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -88,4 +92,17 @@ body {
 
 .KalenderTable td:hover {
     background-color: #ffebee !important;
+}
+
+input {
+    height: 30px;
+    width: 30px;
+    appearance: none;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+input:hover {
+    cursor: pointer;
 }

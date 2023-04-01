@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using Boekingssysteem.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Boekingssysteem.ViewModels
 {
-    public class BewerkDocentViewModel
+    public class DocentenStatussenViewModel
     {
-        [Required]
+        [Key]
         public string Rnummer { get; set; }
         [Required]
         public string Voornaam { get; set; }
@@ -12,8 +15,10 @@ namespace Boekingssysteem.ViewModels
         public string Achternaam { get; set; }
         [Required]
         public string Email { get; set; }
+        public bool? Status { get; set; }
         [Required]
         public int RolId { get; set; }
-        public bool? Status { get; set; }
+
+        public List<Gebruiker> Docenten { get; set; }
     }
 }
