@@ -45,32 +45,35 @@ namespace Boekingssysteem.Controllers
         {
            if (id != vm.Rnummer)
             {
-                //return NotFound();
+                return NotFound();
             }
 
-            try
+            if (ModelState.IsValid)
             {
-                Gebruiker docent = new Gebruiker()
+                try
                 {
-                    Rnummer = vm.Rnummer,
-                    Voornaam = vm.Voornaam,
-                    Achternaam = vm.Achternaam,
-                    Email = vm.Email,
-                    RolId = vm.RolId,
-                    Status = vm.Status,
-                };
-                _context.Update(docent);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException e)
-            {
-                if (!_context.Gebruikers.Any(g => g.Rnummer == vm.Rnummer))
-                {
-                    return NotFound();
+                    Gebruiker docent = new Gebruiker()
+                    {
+                        Rnummer = vm.Rnummer,
+                        Voornaam = vm.Voornaam,
+                        Achternaam = vm.Achternaam,
+                        Email = vm.Email,
+                        RolId = vm.RolId,
+                        Status = vm.Status,
+                    };
+                    _context.Update(docent);
+                    await _context.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateConcurrencyException e)
                 {
-                    throw;
+                    if (!_context.Gebruikers.Any(g => g.Rnummer == vm.Rnummer))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
 
