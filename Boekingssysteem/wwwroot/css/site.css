@@ -111,3 +111,13 @@ input:hover {
     font-size: 50px;
     text-align: center;
 }
+
+.docentCard{
+    margin:20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .docentCard {
+        max-width: 80%
+    }
+}
