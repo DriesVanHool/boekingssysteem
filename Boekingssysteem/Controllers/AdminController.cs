@@ -28,6 +28,58 @@ namespace Boekingssysteem.Controllers
             return View(vm);
         }
 
+        [HttpGet]
+        public IActionResult DocentenStatussen()
+        {
+            DocentenStatussenViewModel vm = new DocentenStatussenViewModel()
+            {
+                Docenten = _context.Gebruikers.Where(g => g.Rol.Naam.ToLower() == "docent").ToList()
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DocentenStatussen(string id, DocentenStatussenViewModel vm)
+        {
+           if (id != vm.Rnummer)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Gebruiker docent = new Gebruiker()
+                    {
+                        Rnummer = vm.Rnummer,
+                        Voornaam = vm.Voornaam,
+                        Achternaam = vm.Achternaam,
+                        Email = vm.Email,
+                        RolId = vm.RolId,
+                        Status = vm.Status,
+                    };
+                    _context.Update(docent);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException e)
+                {
+                    if (!_context.Gebruikers.Any(g => g.Rnummer == vm.Rnummer))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return RedirectToAction(nameof(DocentenStatussen));
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ToevoegenDocent(ToevoegenDocentViewModel vm) 
@@ -60,7 +112,6 @@ namespace Boekingssysteem.Controllers
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> BewerkDocent(string id, BewerkDocentViewModel vm)
@@ -80,7 +131,8 @@ namespace Boekingssysteem.Controllers
                         Voornaam = vm.Voornaam,
                         Achternaam = vm.Achternaam,
                         Email = vm.Email,
-                        RolId = vm.RolId
+                        RolId = vm.RolId,
+                        Status = vm.Status,
                     };
                     _context.Update(docent);
                     await _context.SaveChangesAsync();
