@@ -1,7 +1,8 @@
-﻿@{
+﻿@model Boekingssysteem.ViewModels.IndexViewModel;
+
+@{
     ViewData["Title"] = "Docenten";
 }
-
 <div class="row">
     <div class="col-md-6">
         <h1>@ViewData["Title"]</h1>
@@ -22,94 +23,35 @@
         </div>
     </div>
 
-<div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-    <div class="card-header bg-secondary">Joeri Verlooy</div>
-        <div class="card-body bg-primary">
-        <p class="card-text"><i class="bi bi-person-x">Aanwezig</i></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="bi bi-person-fill-check bg-success"><i bi bi-person-fill-check></i>Afwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="bi bi-patch-question bg-success">Onbekend</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 10rem;">
-    <div class="card-header">Joeri Verlooy</div>
-        <div class="card-body">
-        <p class="card-text"><span class="badge bg-success statusBadge">Aanwezig</span></p>
-    </div>
-</div>
+    @foreach (var docent in Model.Docenten )
+    {
+        string icon = docent.Status == true ? "bi-person-fill-check" : docent.Status == false ? "bi-person-fill-x" : "bi-patch-question";
 
+        <div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
+            <div class="card-header">@docent.Voornaam @docent.Achternaam</div>
+                <div class="card-body">
+                <p class="icons card-text"><span class="@icon"></span></p>
+            </div>
+        </div>
+    }
+
+    @*<div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
+        <div class="card-header">Joeri Verlooy</div>
+            <div class="card-body">
+            <p class="icons card-text"><span class="bi-person-fill-check"></span></p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
+        <div class="card-header">Joeri Verlooy</div>
+            <div class="card-body">
+            <p class="icons card-text"><span class="bi-person-fill-x"></span></p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
+        <div class="card-header">Joeri Verlooy</div>
+            <div class="card-body">
+            <p class="icons card-text"><span class="bi-patch-question"></span></p>
+        </div>
+    </div>*@
 
 </div>
-@*<div class="row">
-    <div class="col-md-12">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">naam</th>
-                    <th scope="col">status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Joeri Verlooy</td>
-                    <td><span class="badge bg-success statusBadge">Aanwezig</span></td>
-                </tr>
-                <tr>
-                    <td>Wim Janssen</td>
-                    <td><span class="badge bg-danger statusBadge">Afwezig</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>*@

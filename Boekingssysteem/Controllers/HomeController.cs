@@ -6,21 +6,30 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Boekingssysteem.ViewModels;
+using Boekingssysteem.Data;
 
 namespace Boekingssysteem.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly BoekingssysteemContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, BoekingssysteemContext ctx)
         {
             _logger = logger;
+            _context = ctx;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IndexViewModel vm = new IndexViewModel()
+            {
+                Docenten = _context.Gebruikers.Where(x => x.Rol.Naam.ToLower() == "docent").ToList()
+            };
+
+            return View(vm);
         }
 
         public IActionResult Privacy()
