@@ -74,10 +74,6 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.statusBadge{
-    width:100px !important;
-}
-
 .row{
     padding-top: 25px !important;
 }

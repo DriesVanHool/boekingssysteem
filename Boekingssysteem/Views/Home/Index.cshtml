@@ -28,7 +28,7 @@
     {
         string icon = docent.Status == true ? "bi-person-fill-check" : docent.Status == false ? "bi-person-fill-x" : "bi-patch-question";
 
-        <div class="col-sm-3 card text-white bg-secondary docentCard">
+        <div class="col-sm-2 card text-white bg-secondary docentCard">
             <div class="card-header">@docent.Voornaam @docent.Achternaam</div>
                 <div class="card-body">
                 <p class="icons card-text"><span class="@icon"></span></p>
@@ -36,23 +36,4 @@
         </div>
     }
     </div>
-    @*<div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
-        <div class="card-header">Joeri Verlooy</div>
-            <div class="card-body">
-            <p class="icons card-text"><span class="bi-person-fill-check"></span></p>
-        </div>
-    </div>
-    <div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
-        <div class="card-header">Joeri Verlooy</div>
-            <div class="card-body">
-            <p class="icons card-text"><span class="bi-person-fill-x"></span></p>
-        </div>
-    </div>
-    <div class="card text-white bg-secondary m-1" style="max-width: 10rem;">
-        <div class="card-header">Joeri Verlooy</div>
-            <div class="card-body">
-            <p class="icons card-text"><span class="bi-patch-question"></span></p>
-        </div>
-    </div>*@
-
 </div>
