@@ -19,25 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Docenten">Docenten beheren</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="DocentenStatussen">Docenten statussen</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Richtingen">Richtingen beheren</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Docent" asp-action="Index">Status</a>
-                        </li>
-                    </ul>
-                    <ul class="d-flex navbar-nav flex-grow-">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index">Aanmelden</a>
-                        </li>
-                    </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
