@@ -4,14 +4,16 @@ using Boekingssysteem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Boekingssysteem.Migrations
 {
     [DbContext(typeof(BoekingssysteemContext))]
-    partial class BoekingssysteemContextModelSnapshot : ModelSnapshot
+    [Migration("20230416154203_AddIdentitySchema")]
+    partial class AddIdentitySchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

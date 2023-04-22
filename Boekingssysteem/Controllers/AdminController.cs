@@ -1,6 +1,7 @@
 ﻿using Boekingssysteem.Data;
 using Boekingssysteem.Models;
 using Boekingssysteem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Boekingssysteem.Controllers
 {
+    [Authorize]
     public class AdminController: Controller
     {
         private readonly BoekingssysteemContext _context;

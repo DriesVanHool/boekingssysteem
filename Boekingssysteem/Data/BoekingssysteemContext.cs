@@ -1,10 +1,12 @@
 ﻿using Boekingssysteem.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 
 namespace Boekingssysteem.Data
 {
-    public class BoekingssysteemContext : DbContext
+    public class BoekingssysteemContext : IdentityDbContext<IdentityUser>
     {
         public BoekingssysteemContext(DbContextOptions<BoekingssysteemContext>options):base(options)
         {
@@ -18,6 +20,8 @@ namespace Boekingssysteem.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.HasDefaultSchema("BS");
 
             modelBuilder.Entity<DocentRichting>()
