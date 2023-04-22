@@ -94,19 +94,6 @@ body {
     background-color: #ffebee !important;
 }
 
-input {
-    height: 30px;
-    width: 30px;
-    appearance: none;
-    background-color: black;
-    border-radius: 50%;
-    opacity: 0;
-}
-
-input:hover {
-    cursor: pointer;
-}
-
 .icons {
     font-size: 50px;
     text-align: center;

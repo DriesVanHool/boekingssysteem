@@ -35,7 +35,7 @@
                         <td>@docent.Email</td>
                          <td>
                             <div class="form-group">
-                                <form asp-controller="Admin" asp-action="DocentenStatussen" asp-route-id="@docent.Rnummer" id="@docent.Rnummer" method="post" class="form-inline justify-content-center">
+                                <form asp-controller="Admin" asp-action="DocentenStatussen" asp-route-id="@docent.Rnummer" id="@docent.Rnummer" method="post" class="form-inline justify-content-center docentStatusForm">
                                     <input type="hidden" value="@docent.Rnummer" asp-for="Rnummer"/>
                                     <input type="hidden" value="@docent.Voornaam" asp-for="Voornaam"/>
                                     <input type="hidden" value="@docent.Achternaam" asp-for="Achternaam"/>

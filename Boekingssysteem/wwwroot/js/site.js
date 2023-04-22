@@ -1,5 +1,5 @@
 ﻿let dropdownBoxes = document.querySelectorAll('select');
-let forms = document.querySelectorAll('form');
+let forms = document.querySelectorAll('.docentStatusForm');
 
 forms.forEach((e) => {
     e.addEventListener('submit', (event) => {
