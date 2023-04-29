@@ -1,10 +1,13 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+﻿@using Boekingssysteem.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CustomUser> SignInManager
+@inject UserManager<CustomUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {
-        <ul class="navbar-nav me-auto">
+    <ul class="navbar-nav me-auto">
+        @if (User.IsInRole("admin"))
+        {
             <li class="nav-item">
                 <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Docenten">Docenten beheren</a>
             </li>
@@ -15,6 +18,10 @@
                 <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Richtingen">Richtingen beheren</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="GrantPermissions">Rollenbeheer</a>
+            </li>
+        }
+        <li class="nav-item">
                 <a class="nav-link" asp-area="" asp-controller="Docent" asp-action="Index">Status</a>
             </li>
         </ul>

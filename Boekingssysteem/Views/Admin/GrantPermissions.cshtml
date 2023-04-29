@@ -1,0 +1,27 @@
+﻿@model HelloCore.ViewModels.GrantPermissionsViewModel
+
+@{
+    ViewData["Title"] = "Rollen Beheer";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="GrantPermissions" asp-method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <select asp-for="GebruikerId" asp-items="Model.Gebruikers"></select>
+            </div>
+            <div class="form-group">
+                <select asp-for="RolId" asp-items="Model.Rollen"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

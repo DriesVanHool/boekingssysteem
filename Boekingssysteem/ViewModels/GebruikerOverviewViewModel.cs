@@ -1,10 +1,11 @@
-﻿using Boekingssysteem.Models;
+﻿using Boekingssysteem.Areas.Identity.Data;
+using Boekingssysteem.Models;
 using System.Collections.Generic;
 
 namespace Boekingssysteem.ViewModels
 {
     public class GebruikerOverviewViewModel
     {
-        public List<Gebruiker> Gebruikers { get; set; }
+        public List<CustomUser> Gebruikers { get; set; }
     }
 }

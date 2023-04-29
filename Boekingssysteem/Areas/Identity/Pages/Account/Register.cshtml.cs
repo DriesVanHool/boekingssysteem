@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Boekingssysteem.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,14 +20,14 @@ namespace Boekingssysteem.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<CustomUser> _signInManager;
+        private readonly UserManager<CustomUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<CustomUser> userManager,
+            SignInManager<CustomUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -45,6 +46,21 @@ namespace Boekingssysteem.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required]
+            [PersonalData]
+            [Display(Name = "Rnummer")]
+            public string Rnummer { get; set; }
+
+            [Required]
+            [PersonalData]
+            [Display(Name = "Voornaam")]
+            public string Voornaam { get; set; }
+
+            [Required]
+            [PersonalData]
+            [Display(Name = "Achternaam")]
+            public string Achternaam { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -74,7 +90,7 @@ namespace Boekingssysteem.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new CustomUser { UserName = Input.Email, Email = Input.Email, Voornaam= Input.Voornaam, Achternaam = Input.Achternaam, Status = null, Rnummer=Input.Rnummer };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

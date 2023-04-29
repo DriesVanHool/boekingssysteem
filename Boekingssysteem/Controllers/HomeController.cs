@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Boekingssysteem.ViewModels;
 using Boekingssysteem.Data;
+using Microsoft.AspNetCore.Identity;
+using Boekingssysteem.Areas.Identity.Data;
 
 namespace Boekingssysteem.Controllers
 {
@@ -15,18 +17,19 @@ namespace Boekingssysteem.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly BoekingssysteemContext _context;
-
-        public HomeController(ILogger<HomeController> logger, BoekingssysteemContext ctx)
+        private readonly UserManager<CustomUser> _userManager;
+        public HomeController(ILogger<HomeController> logger, BoekingssysteemContext ctx, UserManager<CustomUser> userManager)
         {
             _logger = logger;
             _context = ctx;
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             IndexViewModel vm = new IndexViewModel()
             {
-                Docenten = _context.Gebruikers.Where(x => x.Rol.Naam.ToLower() == "docent").ToList()
+                Docenten = (List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent")
             };
 
             return View(vm);

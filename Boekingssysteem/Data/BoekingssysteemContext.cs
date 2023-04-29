@@ -1,4 +1,5 @@
-﻿using Boekingssysteem.Models;
+﻿using Boekingssysteem.Areas.Identity.Data;
+using Boekingssysteem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -6,13 +7,12 @@ using System.Reflection.Emit;
 
 namespace Boekingssysteem.Data
 {
-    public class BoekingssysteemContext : IdentityDbContext<IdentityUser>
+    public class BoekingssysteemContext : IdentityDbContext<CustomUser>
     {
         public BoekingssysteemContext(DbContextOptions<BoekingssysteemContext>options):base(options)
         {
         }
-
-        public DbSet<Gebruiker> Gebruikers { get; set; }
+        public DbSet<CustomUser> CustomUsers { get; set; }
         public DbSet<Afwezigheid> Afwezigheden { get; set; }
         public DbSet<Rol> Rollen { get; set; }
         public DbSet<Richting> Richtingen { get; set; }
@@ -25,7 +25,7 @@ namespace Boekingssysteem.Data
             modelBuilder.HasDefaultSchema("BS");
 
             modelBuilder.Entity<DocentRichting>()
-                 .HasOne(d => d.Gebruiker)
+                 .HasOne(d => d.CustomUser)
                  .WithMany(x => x.DocentRichtingen)
                  .HasForeignKey(r => r.Rnummer)
                  .IsRequired();
@@ -36,14 +36,9 @@ namespace Boekingssysteem.Data
                  .HasForeignKey(r => r.RichtingId)
                  .IsRequired();
 
-            modelBuilder.Entity<Gebruiker>()
-                 .HasOne(d => d.Rol)
-                 .WithMany(x => x.Gebruikers)
-                 .HasForeignKey(r => r.RolId)
-                 .IsRequired();
 
             modelBuilder.Entity<Afwezigheid>()
-                 .HasOne(d => d.Gebruiker)
+                 .HasOne(d => d.CustomUser)
                  .WithMany(x => x.Afwezigheden)
                  .HasForeignKey(r => r.Rnummer)
                  .IsRequired();

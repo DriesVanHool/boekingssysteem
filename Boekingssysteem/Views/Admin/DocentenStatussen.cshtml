@@ -39,7 +39,6 @@
                                     <input type="hidden" value="@docent.Rnummer" asp-for="Rnummer"/>
                                     <input type="hidden" value="@docent.Voornaam" asp-for="Voornaam"/>
                                     <input type="hidden" value="@docent.Achternaam" asp-for="Achternaam"/>
-                                    <input type="hidden" value="@docent.RolId" asp-for="RolId"/>
                                     <input type="hidden" value="@docent.Email" asp-for="Email"/>
                                     <select asp-for="Status" class="form-select" name="Status" id="select @docent.Rnummer">
                                         <option selected="@status.Equals("Onbekend")" value="@null">Onbekend</option>

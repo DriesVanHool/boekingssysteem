@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Boekingssysteem.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,12 +12,12 @@ namespace Boekingssysteem.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<CustomUser> _userManager;
+        private readonly SignInManager<CustomUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<CustomUser> userManager,
+            SignInManager<CustomUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -33,20 +34,41 @@ namespace Boekingssysteem.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [PersonalData]
+            public string Rnummer { get; set; }
+
+            [PersonalData]
+            public string Voornaam { get; set; }
+
+            [PersonalData]
+            public string Achternaam { get; set; }
+
+            [PersonalData]
+            public string Email { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(CustomUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+
+            var rNummer = await Task.FromResult(user.Rnummer);
+            var voornaam = await Task.FromResult(user.Voornaam);
+            var achternaam = await Task.FromResult(user.Achternaam);
+            var email = await Task.FromResult(user.Email);
+            var status = false;
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                Rnummer= rNummer,
+                Voornaam= voornaam,
+                Achternaam= achternaam,
+                Email= email
+                
             };
         }
 
@@ -87,6 +109,12 @@ namespace Boekingssysteem.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            user.Rnummer = Input.Rnummer;
+            user.Voornaam = Input.Voornaam;
+            user.Achternaam = Input.Achternaam;
+            user.Email = Input.Email;
+
+            await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

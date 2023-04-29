@@ -2,6 +2,7 @@
 using Boekingssysteem.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Boekingssysteem.Areas.Identity.Data;
 
 namespace Boekingssysteem.ViewModels
 {
@@ -16,9 +17,7 @@ namespace Boekingssysteem.ViewModels
         [Required]
         public string Email { get; set; }
         public bool? Status { get; set; }
-        [Required]
-        public int RolId { get; set; }
 
-        public List<Gebruiker> Docenten { get; set; }
+        public List<CustomUser> Docenten { get; set; }
     }
 }

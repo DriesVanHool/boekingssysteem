@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Boekingssysteem.Areas.Identity.Data;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,6 @@ namespace Boekingssysteem.Models
         public string Rnummer { get; set; }
 
         [ForeignKey("Rnummer")]
-        public Gebruiker Gebruiker { get; set; }
+        public CustomUser CustomUser { get; set; }
     }
 }

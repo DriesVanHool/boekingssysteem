@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Boekingssysteem.Areas.Identity.Data;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Boekingssysteem.Models
@@ -17,7 +18,7 @@ namespace Boekingssysteem.Models
         public int RichtingId { get; set; }
 
         [ForeignKey("Rnummer")]
-        public Gebruiker Gebruiker { get; set; }
+        public CustomUser CustomUser { get; set; }
 
         [ForeignKey("RichtingId")]
         public Richting Richting { get; set; }
