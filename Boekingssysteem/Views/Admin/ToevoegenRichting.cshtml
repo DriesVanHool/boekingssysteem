@@ -1,0 +1,24 @@
+﻿@model Boekingssysteem.ViewModels.ToevoegenRichtingViewModel;
+@{
+    ViewData["Title"] = "Richting toevoegen";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="ToevoegenRichting" method="post" class="form-inline justify-content-center">
+            <div asp-validation-summary="ModelOnly" class="text-danger" />
+            <div class="form-group formRow">
+                <label asp-for="Naam" class="control-label">@Html.DisplayNameFor(model => this.Model.Naam)</label>
+                <input type="text" class="form-control" asp-for="Naam" class="form-control placeholder="richtingnaam"" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" value="Bevestig" />
+        </form>
+    </div>
+</div>

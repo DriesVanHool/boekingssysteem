@@ -194,7 +194,38 @@ namespace Boekingssysteem.Controllers
 
         public IActionResult Richtingen()
         {
-            return View();
+            RichtingenViewModel viewModel = new RichtingenViewModel()
+            {
+                Richtingen = _context.Richtingen.ToList()
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToevoegenRichting(ToevoegenRichtingViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(new Richting()
+                {
+                    Naam = viewModel.Naam
+                });
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Richtingen));
+            }
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("DeleteRichting")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerwijderRichtingConfirm(int id)
+        {
+            Richting richting = _context.Richtingen.Where(r => r.RichtingId == id).FirstOrDefault();
+            _context.Richtingen.Remove(richting);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Richtingen));
         }
 
         public IActionResult GrantPermissions()
@@ -204,6 +235,69 @@ namespace Boekingssysteem.Controllers
                 Gebruikers = new SelectList(_userManager.Users.ToList(), "Id", "UserName"),
                 Rollen = new SelectList(_roleManager.Roles.ToList(), "Id", "Name")
             };
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult ToevoegenRichting()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> BewerkRichting(int? id)
+        {
+            if (id==null)
+                return NotFound();
+
+            Richting richting = _context.Richtingen.Where(r => r.RichtingId == id).FirstOrDefault();
+
+            if (richting == null)
+                return NotFound();
+
+            BewerkRichtingViewModel vm = new BewerkRichtingViewModel()
+            {
+                RichtingId = richting.RichtingId,
+                Naam = richting.Naam
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BewerkRichting(int id, BewerkRichtingViewModel viewModel)
+        {
+            if (id != viewModel.RichtingId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Richting richting = new Richting()
+                    {
+                        RichtingId = viewModel.RichtingId,
+                        Naam = viewModel.Naam
+                    };
+                    _context.Update(richting);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException e)
+                {
+                    if (!_context.Richtingen.Any(r => r.RichtingId == viewModel.RichtingId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Richtingen));
+            }
             return View(viewModel);
         }
 
