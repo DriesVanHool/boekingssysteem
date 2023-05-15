@@ -165,7 +165,7 @@ namespace Boekingssysteem.Controllers
             if (string.IsNullOrEmpty(id))
                 return NotFound();
 
-            CustomUser docent = await _userManager.FindByIdAsync(id);
+            CustomUser docent = await _userManager.Users.FirstAsync(d => d.Rnummer == id);
 
             if (docent == null)
                 return NotFound();

@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Mijn staus";
+﻿@model Boekingssysteem.ViewModels.DocentStatusViewModel;
+@{
+    ViewData["Title"] = "Mijn status";
 }
 
 <div class="row">
@@ -8,12 +9,17 @@
     </div>
 </div>
 
+       
+
+
 <div class="row">
     <div class="col-md-4"></div>
-
+    @{
+        string kleurButton = Model.Status == null ? "btn-warning" : Model.Status == false ? "btn-danger" : "btn-success";
+    } 
     <div class="col-md-4" style="text-align:center">
         <h5>Status wijzigen</h5>
-        <button type="button" id="statusBtn" class="btn btn-success">Aanwezig</button>
+        <a asp-controller="Docent" asp-action="StatusWijzigen" type="button" id="statusBtn" class="btn @kleurButton">@Model.GetStatus()</a>
     </div>
 
     <div class="col-md-4"></div>
