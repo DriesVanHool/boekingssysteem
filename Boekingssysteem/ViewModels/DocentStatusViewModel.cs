@@ -10,5 +10,12 @@
             if (Status == true) { return "Aanwezig"; }
             return "Afwezig";
         }
+
+        public string GetButtonColor()
+        {
+            if (Status == null) { return "btn-warning"; }
+            if (Status == true) { return "btn-success"; }
+            return "btn-danger";
+        }
     }
 }
