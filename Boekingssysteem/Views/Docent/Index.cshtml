@@ -20,24 +20,101 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <form asp-action="Afwezigheden" method="post" class="form-inline justify-content-center">
-            <input type="hidden" asp-for="Afwezigheid.AfwezigheidId" />
+            <input type="hidden" asp-for="AfwezigheidId" />
+            <input type="hidden" asp-for="DocentId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"/>
             <div class="row formRow">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="beginDatum" asp-for="Afwezigheid" class="form-control" />
-                    <span asp-validation-for="Afwezigheid.Begindatum" class="text-danger"></span>
+                <div class="form-group">
+                    <label class="form-label" for="beginDatum">Begindatum</label>
+                    <input type="date" class="form-control" id="beginDatum" asp-for="BeginDatum" class="form-control" />
+                    <span asp-validation-for="BeginDatum" class="text-danger"></span>
                 </div>
             </div>
             <div class="row formRow">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="eindDatum" asp-for="Afwezigheid" class="form-control" />
-                    <span asp-validation-for="Afwezigheid.Einddatum" class="text-danger"></span>
+                <div class="form-group">
+                    <label class="form-label" for="eindDatum">Einddatum</label>
+                    <input type="date" class="form-control" id="eindDatum" asp-for="EindDatum" class="form-control" />
+                    <span asp-validation-for="EindDatum" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row formRow">
+                <div class="form-group">
+                    <label class="form-label" for="opmerking">Opmerking</label>
+                    <input type="text" class="form-control" id="opmerking" asp-for="Opmerking" class="form-control" />
                 </div>
             </div>
             <br>
             <input type="submit" class="btn btn-primary" value="Bevestig"/>
         </form>
     </div>
+
+    @*<div class="col-md-4 mt-3">
+            @foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
+            {
+                <li class="list-group-item" id="@afwezigheid.AfwezigheidId">
+                    <div>
+                        <label class="form-label mr-2">Begindatum: @afwezigheid.Begindatum.ToShortDateString()</label>
+                        <label class="form-label mr-2">Einddatum: @afwezigheid.Einddatum.ToShortDateString()</label>
+                    </div>
+                    <label class="form-label">Opmerking: @afwezigheid.Opmerking</label>
+                </li>
+            }
+    </div>*@
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Begindatum</th>
+                    <th scope="col">Einddatum</th>
+                    <th scope="col">Opmerking</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
+                {
+                    <tr>
+                        <td>@afwezigheid.Begindatum.ToShortDateString()</td>
+                        <td>@afwezigheid.Einddatum.ToShortDateString()</td>
+                        <td>@afwezigheid.Opmerking</td>
+                        <td>
+                        <span>
+                            <button id="@afwezigheid.AfwezigheidId" type="button" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#@afwezigheid.AfwezigheidId"><i class="fa fa-trash"></i></button>
+                        </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
 </div>
+
+@foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
+{
+    <!-- TO DO -->
+    <!-- Modal delete afwezigheid -->
+    <div class="modal fade" id="@afwezigheid.AfwezigheidId" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="beheerModalLabel">Verwijder Afwezigheid</h5>
+                </div>
+                <div class="modal-body">
+                    Ben je zeker dat je dit wil verwijderen?
+                </div>
+                <div class="modal-footer">
+                    <form class="mt-5" asp-controller="Docent" asp-action="DeleteAfwezigheid" asp-route-id="@afwezigheid.AfwezigheidId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <input  type="submit" class="btn btn-primary" value="Bevestig"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ }
