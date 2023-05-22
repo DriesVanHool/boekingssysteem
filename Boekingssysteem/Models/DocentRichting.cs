@@ -10,7 +10,6 @@ namespace Boekingssysteem.Models
         [Key]
         public int DocentRichtingId { get; set; }
 
-
         [Required]
         public string Rnummer { get; set; }
 

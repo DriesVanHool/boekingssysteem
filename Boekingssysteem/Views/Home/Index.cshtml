@@ -27,8 +27,9 @@
     @foreach (var docent in Model.Docenten )
     {
         string icon = docent.Status == true ? "bi-person-fill-check" : docent.Status == false ? "bi-person-fill-x" : "bi-patch-question";
+        string achtergrondKleur = docent.Status == true ? "aanwezig" : docent.Status == false ? "afwezig" : "bg-secondary";
 
-        <div class="col-sm-2 card text-white bg-secondary docentCard">
+        <div class="col-sm-2 card text-white @achtergrondKleur docentCard">
             <div class="card-header">@docent.Voornaam @docent.Achternaam</div>
                 <div class="card-body">
                 <p class="icons card-text"><span class="@icon"></span></p>

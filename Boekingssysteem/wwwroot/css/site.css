@@ -91,6 +91,14 @@ body {
     margin:20px;
 }
 
+.afwezig{
+    background-color: red;
+}
+
+.aanwezig {
+    background-color: green;
+}
+
 @media only screen and (max-width: 600px) {
     .docentCard {
         max-width: 80%
