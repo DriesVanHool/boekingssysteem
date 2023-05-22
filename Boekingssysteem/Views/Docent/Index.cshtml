@@ -63,17 +63,19 @@
             <tbody>
                 @foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
                 {
-                    var test = Html.Raw($"afwezigheidBewerken('{afwezigheid.Opmerking}', '{afwezigheid.Begindatum.ToShortDateString()}', '{afwezigheid.Einddatum.ToShortDateString()}', '{afwezigheid.AfwezigheidId}')");
+                    string modalId = "modal" + afwezigheid.AfwezigheidId;
+                    var showModal = Html.Raw($"showModal('modal{afwezigheid.AfwezigheidId}')");
+                    var afwezigheidBewerken = Html.Raw($"afwezigheidBewerken('{afwezigheid.Opmerking}', '{afwezigheid.Begindatum.ToShortDateString()}', '{afwezigheid.Einddatum.ToShortDateString()}', '{afwezigheid.AfwezigheidId}')");
                     <tr>
                         <td>@afwezigheid.Begindatum.ToShortDateString()</td>
                         <td>@afwezigheid.Einddatum.ToShortDateString()</td>
                         <td>@afwezigheid.Opmerking</td>
                         <td>
                         <span>
-                            <button id="@afwezigheid.AfwezigheidId" type="button" onclick="@test" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
+                            <button id="@afwezigheid.AfwezigheidId" type="button" onclick="@afwezigheidBewerken" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
                         </span>
                         <span>
-                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#@afwezigheid.AfwezigheidId"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" onclick="@showModal" data-target="#@modalId"><i class="fa fa-trash"></i></button>
                         </span>
                         </td>
                     </tr>
@@ -88,14 +90,15 @@
 {
     <!-- TO DO -->
     <!-- Modal delete afwezigheid -->
-    <div class="modal fade" id="@afwezigheid.AfwezigheidId" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
+    string modalId = "modal" + afwezigheid.AfwezigheidId;
+    <div class="modal fade" id="@modalId" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="beheerModalLabel">Verwijder Afwezigheid</h5>
                 </div>
                 <div class="modal-body">
-                    Ben je zeker dat je dit wil verwijderen?
+                    Ben je zeker dat je deze afwezigheid wil verwijderen?
                 </div>
                 <div class="modal-footer">
                     
@@ -113,7 +116,7 @@
     const begindatum = document.getElementById("beginDatum");
     const einddatum = document.getElementById("eindDatum");
     const opmerking = document.getElementById("opmerking");
-const afwezigheidId = document.getElementById("afwezigheidId");
+    const afwezigheidId = document.getElementById("afwezigheidId");
 
     function datumFormateren(datumArr) {
         for (let i = 1; i < datumArr.length; i++) {
@@ -133,5 +136,10 @@ const afwezigheidId = document.getElementById("afwezigheidId");
         einddatum.value = datumFormateren(tweedeDatum.split('-').reverse());
         opmerking.value = beschrijving;
         afwezigheidId.value = id;
+    }
+
+    function showModal(id){
+        const modal = document.getElementById(id);
+        modal.modal('show');
     }
  </script>

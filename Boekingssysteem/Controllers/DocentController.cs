@@ -96,5 +96,15 @@ namespace Boekingssysteem.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost, ActionName("DeleteAfwezigheid")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerwijderAfwezigheidConfirm(string id)
+        {
+            Afwezigheid afwezigheid = _context.Afwezigheden.First(a => a.AfwezigheidId == int.Parse(id));
+            _context.Afwezigheden.Remove(afwezigheid);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
