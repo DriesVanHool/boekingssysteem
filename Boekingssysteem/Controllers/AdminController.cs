@@ -131,15 +131,10 @@ namespace Boekingssysteem.Controllers
             {
                 try
                 {
-                    CustomUser docent = new CustomUser()
-                    {
-                        Id = vm.Id,
-                        Rnummer= vm.Rnummer,
-                        Voornaam = vm.Voornaam,
-                        Achternaam = vm.Achternaam,
-                        Email = vm.Email,
-                        Status = vm.Status,
-                    };
+                    CustomUser docent = _context.CustomUsers.First(d => d.Id == id);
+                    docent.Voornaam = vm.Voornaam;
+                    docent.Achternaam = vm.Achternaam;
+                    docent.Email = vm.Email;
 
                     _context.Update(docent);
                     await _context.SaveChangesAsync();
