@@ -14,7 +14,6 @@ namespace Boekingssysteem.Data
         }
         public DbSet<CustomUser> CustomUsers { get; set; }
         public DbSet<Afwezigheid> Afwezigheden { get; set; }
-        public DbSet<Rol> Rollen { get; set; }
         public DbSet<Richting> Richtingen { get; set; }
         public DbSet<DocentRichting> DocentenRichtingen { get; set; }
 
