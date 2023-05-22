@@ -75,7 +75,7 @@
                             <button id="@afwezigheid.AfwezigheidId" type="button" onclick="@afwezigheidBewerken" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
                         </span>
                         <span>
-                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" onclick="@showModal" data-target="#@modalId"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#@modalId"><i class="fa fa-trash"></i></button>
                         </span>
                         </td>
                     </tr>
@@ -136,10 +136,5 @@
         einddatum.value = datumFormateren(tweedeDatum.split('-').reverse());
         opmerking.value = beschrijving;
         afwezigheidId.value = id;
-    }
-
-    function showModal(id){
-        const modal = document.getElementById(id);
-        modal.modal('show');
     }
  </script>
