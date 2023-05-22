@@ -82,14 +82,6 @@ body {
     padding-top:15px;
 }
 
-.KalenderTable{
-    cursor: pointer !important;
-}
-
-.KalenderTable td:hover {
-    background-color: #ffebee !important;
-}
-
 .icons {
     font-size: 50px;
     text-align: center;

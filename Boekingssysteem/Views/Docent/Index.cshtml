@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Mijn staus";
+﻿@model Boekingssysteem.ViewModels.DocentStatusViewModel;
+@{
+    ViewData["Title"] = "Status en afwezigheden";
 }
 
 <div class="row">
@@ -10,99 +11,135 @@
 
 <div class="row">
     <div class="col-md-4"></div>
-
     <div class="col-md-4" style="text-align:center">
         <h5>Status wijzigen</h5>
-        <button type="button" id="statusBtn" class="btn btn-success">Aanwezig</button>
+        <a asp-controller="Docent" asp-action="StatusWijzigen" type="button" id="statusBtn" class="btn @Model.GetButtonColor()">@Model.GetStatus()</a>
     </div>
 
     <div class="col-md-4"></div>
 </div>
 
-
 <div class="row">
-    <div class="col-md-6">
-        <h5>Afwezigheids kalender</h5>
+    <div class="col-md-4">
+        <form asp-action="Afwezigheden" method="post" class="form-inline justify-content-center">
+            <input type="hidden" asp-for="AfwezigheidId" id="afwezigheidId" />
+            <input type="hidden" asp-for="DocentId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"/>
+            <div class="row formRow">
+                <div class="form-group">
+                    <label class="form-label" for="beginDatum">Begindatum</label>
+                    <input type="date" class="form-control" id="beginDatum" asp-for="BeginDatum" class="form-control" />
+                    <span asp-validation-for="BeginDatum" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row formRow">
+                <div class="form-group">
+                    <label class="form-label" for="eindDatum">Einddatum</label>
+                    <input type="date" class="form-control" id="eindDatum" asp-for="EindDatum" class="form-control" />
+                    <span asp-validation-for="EindDatum" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row formRow">
+                <div class="form-group">
+                    <label class="form-label" for="opmerking">Opmerking</label>
+                    <input type="text" class="form-control" id="opmerking" asp-for="Opmerking" class="form-control" />
+                </div>
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Bevestig"/>
+        </form>
     </div>
-    
-    <div class="col-md-3"></div>
-    <div class="col-md-3">
-        <div class="form-group">
-            <select class="form-select" id="exampleSelect1">
-            <option>Maand</option>
-            <option>Januari</option>
-            <option>Februari</option>
-            </select>
-        </div>
-     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <table class="table table-bordered KalenderTable">
+    <div class="col-md-8">
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Maandag</th>
-                    <th scope="col">Dinsdag</th>
-                    <th scope="col">Woensdag</th>
-                    <th scope="col">Donderdag</th>
-                    <th scope="col">Vrijdag</th>
-                    <th scope="col">Zaterdag</th>
-                    <th scope="col">Zondag</th>
+                    <th scope="col">Begindatum</th>
+                    <th scope="col">Einddatum</th>
+                    <th scope="col">Opmerking</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td class="table-success">16</td>
-                    <td class="table-success">17</td>
-                    <td>18</td>
-                    <td>19</td>
-                </tr>
-                <tr>
-                    <td class="table-success">20</td>
-                    <td class="table-success">21</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>24</td>
-                    <td>25</td>
-                    <td>26</td>
-                </tr>
-                <tr>
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                @foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
+                {
+                    string modalId = "modal" + afwezigheid.AfwezigheidId;
+                    var showModal = Html.Raw($"showModal('modal{afwezigheid.AfwezigheidId}')");
+                    var afwezigheidBewerken = Html.Raw($"afwezigheidBewerken('{afwezigheid.Opmerking}', '{afwezigheid.Begindatum.ToShortDateString()}', '{afwezigheid.Einddatum.ToShortDateString()}', '{afwezigheid.AfwezigheidId}')");
+                    <tr>
+                        <td>@afwezigheid.Begindatum.ToShortDateString()</td>
+                        <td>@afwezigheid.Einddatum.ToShortDateString()</td>
+                        <td>@afwezigheid.Opmerking</td>
+                        <td>
+                        <span>
+                            <button id="@afwezigheid.AfwezigheidId" type="button" onclick="@afwezigheidBewerken" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" onclick="@showModal" data-target="#@modalId"><i class="fa fa-trash"></i></button>
+                        </span>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
+
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <button type="button" class="btn btn-primary" style="max-width:200px">Bevestig</button>
+
+@foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
+{
+    <!-- TO DO -->
+    <!-- Modal delete afwezigheid -->
+    string modalId = "modal" + afwezigheid.AfwezigheidId;
+    <div class="modal fade" id="@modalId" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="beheerModalLabel">Verwijder Afwezigheid</h5>
+                </div>
+                <div class="modal-body">
+                    Ben je zeker dat je deze afwezigheid wil verwijderen?
+                </div>
+                <div class="modal-footer">
+                    
+                    <form class="mt-5" asp-controller="Docent" asp-action="DeleteAfwezigheid" asp-route-id="@afwezigheid.AfwezigheidId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <input  type="submit" class="btn btn-primary" value="Bevestig"/>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+ }
+
+ <script>
+    const begindatum = document.getElementById("beginDatum");
+    const einddatum = document.getElementById("eindDatum");
+    const opmerking = document.getElementById("opmerking");
+    const afwezigheidId = document.getElementById("afwezigheidId");
+
+    function datumFormateren(datumArr) {
+        for (let i = 1; i < datumArr.length; i++) {
+            let dagOfMaand = datumArr[i];
+
+            if (dagOfMaand.length < 2) {
+                datumArr[i] = '0' + dagOfMaand;
+            }
+        }
+
+        return datumArr.join('-');
+    }
+
+
+    function afwezigheidBewerken(beschrijving, eersteDatum, tweedeDatum, id) {
+        begindatum.value = datumFormateren(eersteDatum.split('-').reverse());
+        einddatum.value = datumFormateren(tweedeDatum.split('-').reverse());
+        opmerking.value = beschrijving;
+        afwezigheidId.value = id;
+    }
+
+    function showModal(id){
+        const modal = document.getElementById(id);
+        modal.modal('show');
+    }
+ </script>

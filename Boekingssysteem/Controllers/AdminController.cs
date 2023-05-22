@@ -86,7 +86,7 @@ namespace Boekingssysteem.Controllers
             return RedirectToAction(nameof(DocentenStatussen));
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ToevoegenDocent(ToevoegenDocentViewModel vm) 
         {
@@ -116,13 +116,13 @@ namespace Boekingssysteem.Controllers
         public IActionResult ToevoegenDocent()
         {
             return View();
-        }
+        }*/
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> BewerkDocent(string id, BewerkDocentViewModel vm)
         {
-            if (id != vm.Rnummer)
+            if (id != vm.Id)
             {
                 return NotFound();
             }
@@ -131,15 +131,16 @@ namespace Boekingssysteem.Controllers
             {
                 try
                 {
-                    Gebruiker docent = new Gebruiker()
+                    CustomUser docent = new CustomUser()
                     {
+                        Id = vm.Id,
                         Rnummer= vm.Rnummer,
                         Voornaam = vm.Voornaam,
                         Achternaam = vm.Achternaam,
                         Email = vm.Email,
-                        RolId = vm.RolId,
                         Status = vm.Status,
                     };
+
                     _context.Update(docent);
                     await _context.SaveChangesAsync();
                 }
