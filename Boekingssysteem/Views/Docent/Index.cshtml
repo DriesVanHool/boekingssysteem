@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Afwezigheden" method="post" class="form-inline justify-content-center">
-            <input type="hidden" asp-for="AfwezigheidId" />
+            <input type="hidden" asp-for="AfwezigheidId" id="afwezigheidId" />
             <input type="hidden" asp-for="DocentId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"/>
             <div class="row formRow">
@@ -50,18 +50,6 @@
         </form>
     </div>
 
-    @*<div class="col-md-4 mt-3">
-            @foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
-            {
-                <li class="list-group-item" id="@afwezigheid.AfwezigheidId">
-                    <div>
-                        <label class="form-label mr-2">Begindatum: @afwezigheid.Begindatum.ToShortDateString()</label>
-                        <label class="form-label mr-2">Einddatum: @afwezigheid.Einddatum.ToShortDateString()</label>
-                    </div>
-                    <label class="form-label">Opmerking: @afwezigheid.Opmerking</label>
-                </li>
-            }
-    </div>*@
     <div class="col-md-8">
         <table class="table table-striped">
             <thead>
@@ -75,13 +63,14 @@
             <tbody>
                 @foreach (Afwezigheid afwezigheid in Model.Afwezigheden)
                 {
+                    var test = Html.Raw($"afwezigheidBewerken('{afwezigheid.Opmerking}', '{afwezigheid.Begindatum.ToShortDateString()}', '{afwezigheid.Einddatum.ToShortDateString()}', '{afwezigheid.AfwezigheidId}')");
                     <tr>
                         <td>@afwezigheid.Begindatum.ToShortDateString()</td>
                         <td>@afwezigheid.Einddatum.ToShortDateString()</td>
                         <td>@afwezigheid.Opmerking</td>
                         <td>
                         <span>
-                            <button id="@afwezigheid.AfwezigheidId" type="button" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
+                            <button id="@afwezigheid.AfwezigheidId" type="button" onclick="@test" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></button>
                         </span>
                         <span>
                             <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#@afwezigheid.AfwezigheidId"><i class="fa fa-trash"></i></button>
@@ -109,6 +98,7 @@
                     Ben je zeker dat je dit wil verwijderen?
                 </div>
                 <div class="modal-footer">
+                    
                     <form class="mt-5" asp-controller="Docent" asp-action="DeleteAfwezigheid" asp-route-id="@afwezigheid.AfwezigheidId">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <input  type="submit" class="btn btn-primary" value="Bevestig"/>
@@ -118,3 +108,30 @@
         </div>
     </div>
  }
+
+ <script>
+    const begindatum = document.getElementById("beginDatum");
+    const einddatum = document.getElementById("eindDatum");
+    const opmerking = document.getElementById("opmerking");
+const afwezigheidId = document.getElementById("afwezigheidId");
+
+    function datumFormateren(datumArr) {
+        for (let i = 1; i < datumArr.length; i++) {
+            let dagOfMaand = datumArr[i];
+
+            if (dagOfMaand.length < 2) {
+                datumArr[i] = '0' + dagOfMaand;
+            }
+        }
+
+        return datumArr.join('-');
+    }
+
+
+    function afwezigheidBewerken(beschrijving, eersteDatum, tweedeDatum, id) {
+        begindatum.value = datumFormateren(eersteDatum.split('-').reverse());
+        einddatum.value = datumFormateren(tweedeDatum.split('-').reverse());
+        opmerking.value = beschrijving;
+        afwezigheidId.value = id;
+    }
+ </script>
