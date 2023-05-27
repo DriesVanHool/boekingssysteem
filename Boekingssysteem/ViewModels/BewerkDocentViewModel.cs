@@ -5,6 +5,8 @@ namespace Boekingssysteem.ViewModels
     public class BewerkDocentViewModel
     {
         [Required]
+        public string Id { get; set; }
+        [Required]
         public string Rnummer { get; set; }
         [Required]
         public string Voornaam { get; set; }
@@ -12,8 +14,6 @@ namespace Boekingssysteem.ViewModels
         public string Achternaam { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
-        public int RolId { get; set; }
         public bool? Status { get; set; }
     }
 }

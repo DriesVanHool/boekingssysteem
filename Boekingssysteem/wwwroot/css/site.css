@@ -82,14 +82,6 @@ body {
     padding-top:15px;
 }
 
-.KalenderTable{
-    cursor: pointer !important;
-}
-
-.KalenderTable td:hover {
-    background-color: #ffebee !important;
-}
-
 .icons {
     font-size: 50px;
     text-align: center;
@@ -97,6 +89,14 @@ body {
 
 .docentCard{
     margin:20px;
+}
+
+.afwezig{
+    background-color: red;
+}
+
+.aanwezig {
+    background-color: green;
 }
 
 @media only screen and (max-width: 600px) {

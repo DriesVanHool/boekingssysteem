@@ -15,7 +15,6 @@ namespace Boekingssysteem.Models
         [Required]
         public DateTime Einddatum { get; set; }
         public string Opmerking { get; set; }
-
         [Required]
         public string Rnummer { get; set; }
 

@@ -7,14 +7,12 @@
     <div class="col-md-6">
         <h1>@ViewData["Title"]</h1>
     </div>
+    <div class="col-md-3"></div>
     <div class="col-md-3 formRow">
         <div class="input-group">
             <input class="form-control me-sm-2" type="search" placeholder="Zoek op naam">
             <button type="button" class="btn btn-primary input-group-append"><i class="fa fa-search"></i></button>
         </div>
-    </div>
-    <div class="col-md-3 formRow">
-        <a type="button" class="btn btn-primary w-100" asp-controller="Admin" asp-action="ToevoegenDocent">Toevoegen</a>
     </div>
 </div>
 <div class="row">
@@ -40,7 +38,7 @@
                                 <a asp-controller="Admin" asp-action="LinkDocent" asp-route-id="@docent.Rnummer" type="button" class="btn btn-primary input-group-append"><i class="fa fa-link"></i></a>
                             </span>
                             <span>
-                                <a asp-controller="Admin" asp-action="BewerkDocent" asp-route-id="@docent.Rnummer" type="button" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></a>
+                                <a asp-controller="Admin" asp-action="BewerkDocent" asp-route-id="@docent.Id" type="button" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></a>
                             </span>
                             <span>
                                 <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#@docent.Rnummer"><i class="fa fa-trash"></i></button>
@@ -56,7 +54,6 @@
 
 @foreach (var docent in Model.Gebruikers)
 {
-    <!-- TO DO -->
     <!-- Modal delete docent -->
     <div class="modal fade" id="@docent.Rnummer" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -68,7 +65,7 @@
                     Ben je zeker dat je @docent.Voornaam @docent.Achternaam wil verwijderen?
                 </div>
                 <div class="modal-footer">
-                    <form class="mt-5" asp-controller="Admin" asp-action="DeleteDocent" asp-route-id="@docent.Rnummer">
+                    <form class="mt-5" asp-controller="Admin" asp-action="DeleteDocent" asp-route-id="@docent.Id">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <input  type="submit" class="btn btn-primary" value="Bevestig"/>
                     </form>
