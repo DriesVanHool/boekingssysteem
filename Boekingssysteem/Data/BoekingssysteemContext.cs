@@ -42,6 +42,7 @@ namespace Boekingssysteem.Data
                  .WithMany(x => x.Afwezigheden)
                  .HasForeignKey(r => r.Rnummer)
                  .IsRequired();
+
         }
     }
 }

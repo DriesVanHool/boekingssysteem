@@ -34,9 +34,9 @@ namespace Boekingssysteem.Controllers
         {
             GebruikerOverviewViewModel vm = new GebruikerOverviewViewModel()
             {
-                Gebruikers = (List<CustomUser>) await _userManager.GetUsersInRoleAsync("docent")
+                Gebruikers = (List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent")
             };
-
+            
             return View(vm);
         }
 
@@ -226,6 +226,62 @@ namespace Boekingssysteem.Controllers
             _context.Richtingen.Remove(richting);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Richtingen));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LinkDocent(string id)
+        {
+            if (id == null)
+                return NotFound();
+
+            CustomUser docent = await _userManager.Users.Include(u=>u.DocentRichtingen).FirstAsync(d => d.Rnummer == id);
+
+            if (docent == null)
+                return NotFound();
+
+            LinkDocentViewModel vm = new LinkDocentViewModel()
+            {
+                Rnummer = docent.Rnummer,
+                Voornaam = docent.Voornaam,
+                Achternaam= docent.Achternaam,
+                DocentRichtingen = docent.DocentRichtingen,
+                Richtingen = _context.Richtingen.ToList()
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LinkDocent(string id, LinkDocentViewModel vm)
+        {
+            if (id != vm.Rnummer)
+            {
+                return NotFound();
+            }
+
+            CustomUser docent = await _userManager.Users.FirstAsync(d => d.Rnummer == id);
+            Richting richting = _context.Richtingen.FirstOrDefault(r => r.RichtingId == vm.RichtingId);
+
+            if (docent == null)
+                return NotFound();
+
+            if (richting == null)
+                return NotFound();
+
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(new DocentRichting()
+                {
+                    CustomUser = docent,
+                    Richting = richting
+                });
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Docenten));
+            }
+
+            return View(vm);
         }
 
         public IActionResult GrantPermissions()

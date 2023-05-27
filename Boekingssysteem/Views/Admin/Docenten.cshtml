@@ -37,7 +37,7 @@
                         <td>@docent.Email</td>
                          <td>
                             <span>
-                                <button type="button" class="btn btn-primary input-group-append" data-toggle="modal" data-target="#link"><i class="fa fa-link"></i></button>
+                                <a asp-controller="Admin" asp-action="LinkDocent" asp-route-id="@docent.Rnummer" type="button" class="btn btn-primary input-group-append"><i class="fa fa-link"></i></a>
                             </span>
                             <span>
                                 <a asp-controller="Admin" asp-action="BewerkDocent" asp-route-id="@docent.Rnummer" type="button" class="btn btn-primary input-group-append"><i class="fa fa-edit"></i></a>
@@ -77,36 +77,3 @@
         </div>
     </div>
  }
-              
-<!-- Modal docent richting -->
-<div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="beheerModalLabel">Docent -Richting</h5>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <fieldset class="form-group">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="check1">
-                        <label class="form-check-label" for="check1">
-                          Programmeren
-                        </label>
-                      </div>
-                      <div class="form-check">
-                         <input class="form-check-input" type="checkbox" value="" id="check2" checked="">
-                         <label class="form-check-label" for="check2">
-                          Netwerken
-                        </label>
-                      </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Bevestig</button>
-            </div>
-        </div>
-    </div>
-</div>

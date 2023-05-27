@@ -2,7 +2,7 @@
 
 namespace Boekingssysteem.Migrations
 {
-    public partial class contextFk : Migration
+    public partial class richting : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

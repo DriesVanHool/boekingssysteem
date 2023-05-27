@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Boekingssysteem.Migrations
 {
     [DbContext(typeof(BoekingssysteemContext))]
-    [Migration("20230429121708_customUser")]
-    partial class customUser
+    [Migration("20230520115243_richtingen")]
+    partial class richtingen
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -348,7 +348,7 @@ namespace Boekingssysteem.Migrations
 
             modelBuilder.Entity("Boekingssysteem.Models.Afwezigheid", b =>
                 {
-                    b.HasOne("Boekingssysteem.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("Boekingssysteem.Areas.Identity.Data.CustomUser", "CustomUser")
                         .WithMany("Afwezigheden")
                         .HasForeignKey("Rnummer")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -363,7 +363,7 @@ namespace Boekingssysteem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Boekingssysteem.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("Boekingssysteem.Areas.Identity.Data.CustomUser", "CustomUser")
                         .WithMany("DocentRichtingen")
                         .HasForeignKey("Rnummer")
                         .OnDelete(DeleteBehavior.Cascade)
