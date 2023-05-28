@@ -18,9 +18,5 @@ namespace Boekingssysteem.Models
         public bool? Status { get; set; }
         [Required]
         public int RolId { get; set; }
-
-        [ForeignKey("RolId")]
-        public Rol Rol { get; set; }
-
     }
 }

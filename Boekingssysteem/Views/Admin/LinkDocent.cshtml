@@ -42,7 +42,7 @@
                                     <td>@richting.Richting.Naam</td>
                                     <td>
                                         <span>
-                                            <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#@richting.RichtingId"><i class="fa fa-trash"></i></button>
+                                        <button type="button" class="btn btn-danger input-group-append" data-toggle="modal" data-target="#deleteModal-@richting.DocentRichtingId"><i class="fa fa-trash"></i></button>
                                         </span>
                                     </td>
                                 </tr>
@@ -53,3 +53,26 @@
         </form>
     </div>
 </div>
+
+@foreach (var richting in Model.DocentRichtingen)
+{
+    <!-- Modal delete Link -->
+    <div class="modal fade" id="deleteModal-@richting.DocentRichtingId" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="beheerModalLabel">Verwijder link</h5>
+                </div>
+                <div class="modal-body">
+                    Ben je zeker dat je @richting.Richting.Naam wil verwijderen?
+                </div>
+                <div class="modal-footer">
+                    <form class="mt-5" asp-controller="Admin" asp-action="DeleteLink" asp-route-id="@richting.DocentRichtingId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <input type="submit" class="btn btn-primary" value="Bevestig" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

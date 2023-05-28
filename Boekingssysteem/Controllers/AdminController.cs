@@ -188,6 +188,19 @@ namespace Boekingssysteem.Controllers
         }
 
 
+        [HttpPost, ActionName("DeleteLink")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerwijderLinkConfirm(int id)
+        {
+            DocentRichting link = _context.DocentenRichtingen.Include(l=>l.CustomUser).Where(l => l.DocentRichtingId == id).FirstOrDefault();
+            string rNummer = link.CustomUser.Rnummer;
+            _context.DocentenRichtingen.Remove(link);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("LinkDocent", new { id = rNummer });
+        }
+
+
         public IActionResult Richtingen()
         {
             RichtingenViewModel viewModel = new RichtingenViewModel()
@@ -274,7 +287,8 @@ namespace Boekingssysteem.Controllers
                     Richting = richting
                 });
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Docenten));
+
+                return RedirectToAction("LinkDocent", new { id = docent.Rnummer });
             }
 
             return View(vm);

@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Boekingssysteem.Migrations
 {
-<<<<<<<< HEAD:Boekingssysteem/Migrations/20230520112121_int.cs
-    public partial class @int : Migration
-========
     public partial class init : Migration
->>>>>>>> 7bb493216398f255f93da3745eb33fbce127fab8:Boekingssysteem/Migrations/20230520163435_init.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -74,23 +70,6 @@ namespace Boekingssysteem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:Boekingssysteem/Migrations/20230520112121_int.cs
-                name: "Rol",
-                schema: "BS",
-                columns: table => new
-                {
-                    RolId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naam = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rol", x => x.RolId);
-                });
-
-            migrationBuilder.CreateTable(
-========
->>>>>>>> 7bb493216398f255f93da3745eb33fbce127fab8:Boekingssysteem/Migrations/20230520163435_init.cs
                 name: "AspNetRoleClaims",
                 schema: "BS",
                 columns: table => new
@@ -123,12 +102,7 @@ namespace Boekingssysteem.Migrations
                     Begindatum = table.Column<DateTime>(nullable: false),
                     Einddatum = table.Column<DateTime>(nullable: false),
                     Opmerking = table.Column<string>(nullable: true),
-<<<<<<<< HEAD:Boekingssysteem/Migrations/20230520112121_int.cs
-                    Rnummer = table.Column<string>(nullable: false),
-                    Id = table.Column<string>(nullable: true)
-========
                     Rnummer = table.Column<string>(nullable: false)
->>>>>>>> 7bb493216398f255f93da3745eb33fbce127fab8:Boekingssysteem/Migrations/20230520163435_init.cs
                 },
                 constraints: table =>
                 {
@@ -265,33 +239,6 @@ namespace Boekingssysteem.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-<<<<<<<< HEAD:Boekingssysteem/Migrations/20230520112121_int.cs
-            migrationBuilder.CreateTable(
-                name: "Gebruiker",
-                schema: "BS",
-                columns: table => new
-                {
-                    Rnummer = table.Column<string>(nullable: false),
-                    Voornaam = table.Column<string>(nullable: false),
-                    Achternaam = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    Status = table.Column<bool>(nullable: true),
-                    RolId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Gebruiker", x => x.Rnummer);
-                    table.ForeignKey(
-                        name: "FK_Gebruiker_Rol_RolId",
-                        column: x => x.RolId,
-                        principalSchema: "BS",
-                        principalTable: "Rol",
-                        principalColumn: "RolId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-========
->>>>>>>> 7bb493216398f255f93da3745eb33fbce127fab8:Boekingssysteem/Migrations/20230520163435_init.cs
             migrationBuilder.CreateIndex(
                 name: "IX_Afwezigheid_Rnummer",
                 schema: "BS",
@@ -355,15 +302,6 @@ namespace Boekingssysteem.Migrations
                 schema: "BS",
                 table: "DocentRichting",
                 column: "Rnummer");
-<<<<<<<< HEAD:Boekingssysteem/Migrations/20230520112121_int.cs
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Gebruiker_RolId",
-                schema: "BS",
-                table: "Gebruiker",
-                column: "RolId");
-========
->>>>>>>> 7bb493216398f255f93da3745eb33fbce127fab8:Boekingssysteem/Migrations/20230520163435_init.cs
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -397,13 +335,6 @@ namespace Boekingssysteem.Migrations
                 schema: "BS");
 
             migrationBuilder.DropTable(
-<<<<<<<< HEAD:Boekingssysteem/Migrations/20230520112121_int.cs
-                name: "Gebruiker",
-                schema: "BS");
-
-            migrationBuilder.DropTable(
-========
->>>>>>>> 7bb493216398f255f93da3745eb33fbce127fab8:Boekingssysteem/Migrations/20230520163435_init.cs
                 name: "AspNetRoles",
                 schema: "BS");
 
@@ -413,10 +344,6 @@ namespace Boekingssysteem.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers",
-                schema: "BS");
-
-            migrationBuilder.DropTable(
-                name: "Rol",
                 schema: "BS");
         }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Boekingssysteem.Migrations
 {
     [DbContext(typeof(BoekingssysteemContext))]
-    [Migration("20230520115243_richtingen")]
-    partial class richtingen
+    [Migration("20230527182957_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -149,36 +149,6 @@ namespace Boekingssysteem.Migrations
                     b.ToTable("DocentRichting");
                 });
 
-            modelBuilder.Entity("Boekingssysteem.Models.Gebruiker", b =>
-                {
-                    b.Property<string>("Rnummer")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Achternaam")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RolId")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Voornaam")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Rnummer");
-
-                    b.HasIndex("RolId");
-
-                    b.ToTable("Gebruiker");
-                });
-
             modelBuilder.Entity("Boekingssysteem.Models.Richting", b =>
                 {
                     b.Property<int>("RichtingId")
@@ -193,22 +163,6 @@ namespace Boekingssysteem.Migrations
                     b.HasKey("RichtingId");
 
                     b.ToTable("Richting");
-                });
-
-            modelBuilder.Entity("Boekingssysteem.Models.Rol", b =>
-                {
-                    b.Property<int>("RolId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Naam")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RolId");
-
-                    b.ToTable("Rol");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -366,15 +320,6 @@ namespace Boekingssysteem.Migrations
                     b.HasOne("Boekingssysteem.Areas.Identity.Data.CustomUser", "CustomUser")
                         .WithMany("DocentRichtingen")
                         .HasForeignKey("Rnummer")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Boekingssysteem.Models.Gebruiker", b =>
-                {
-                    b.HasOne("Boekingssysteem.Models.Rol", "Rol")
-                        .WithMany("Gebruikers")
-                        .HasForeignKey("RolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
