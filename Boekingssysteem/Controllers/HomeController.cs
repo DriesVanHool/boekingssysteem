@@ -55,9 +55,10 @@ namespace Boekingssysteem.Controllers
                 vm.Docenten = gebruikers.Where(g => g.Voornaam.ToLower().Contains(vm.Zoekterm.ToLower()) || g.Achternaam.ToLower().Contains(vm.Zoekterm.ToLower())).ToList();
             }
 
-            if (vm.RichtingId>0)
+            if (vm.RichtingId > 0)
             {
-                vm.Docenten = vm.Docenten.Where(d=>d.DocentRichtingen.Select(d=>d.RichtingId).Contains(vm.RichtingId)).ToList();
+                vm.Docenten = vm.Docenten.Where(d => d.DocentRichtingen != null
+                && d.DocentRichtingen.Any(dr => dr.RichtingId == vm.RichtingId)).ToList();
             }
 
             return View(vm);

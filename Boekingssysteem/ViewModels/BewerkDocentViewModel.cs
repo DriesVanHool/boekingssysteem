@@ -14,6 +14,5 @@ namespace Boekingssysteem.ViewModels
         public string Achternaam { get; set; }
         [Required]
         public string Email { get; set; }
-        public bool? Status { get; set; }
     }
 }

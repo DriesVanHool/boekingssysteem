@@ -13,28 +13,29 @@
         <form asp-action="BewerkDocent" method="post" class="form-inline justify-content-center">
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="Rnummer" />
+            <input type="hidden" asp-for="Email" />
             <div asp-validation-summary="ModelOnly" class="text-danger"/>
             <div class="row formRow">
                 <div class="form-group">
-                    <input type="text" disabled class="form-control" id="inputRnummer" asp-for="Rnummer" class="form-control" />
+                    <input type="text" disabled class="form-control" id="inputRnummer" asp-for="Rnummer" />
                     <span asp-validation-for="Rnummer" class="text-danger"></span>
                 </div>
             </div>
             <div class="row formRow">
                 <div class="form-group col-md-6">
                     <label asp-for="Voornaam" class="control-label">@Html.DisplayNameFor(model => this.Model.Voornaam)</label>
-                    <input type="text" class="form-control" asp-for="Voornaam" class="form-control" />
+                    <input type="text" asp-for="Voornaam" class="form-control" />
                     <span asp-validation-for="Voornaam" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6" style="display: inline-block">
                     <label asp-for="Achternaam" class="control-label">@Html.DisplayNameFor(model => this.Model.Achternaam)</label>
-                    <input type="text" class="form-control" asp-for="Achternaam" class="form-control" />
+                    <input type="text" asp-for="Achternaam" class="form-control" />
                     <span asp-validation-for="Achternaam" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group formRow">
                 <label asp-for="Email" class="control-label">@Html.DisplayNameFor(model => this.Model.Email)</label>
-                <input disabled type="email" class="form-control" asp-for="Email" class="form-control placeholder=" rnummer@thomasmore.be"" />
+                <input type="email" disabled asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <br>

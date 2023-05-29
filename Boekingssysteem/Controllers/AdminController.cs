@@ -131,6 +131,8 @@ namespace Boekingssysteem.Controllers
                 return NotFound();
             }
 
+            var test = ModelState;
+
             if (ModelState.IsValid)
             {
                 try
@@ -172,6 +174,7 @@ namespace Boekingssysteem.Controllers
 
             BewerkDocentViewModel vm = new BewerkDocentViewModel()
             {
+                Id = id,
                 Rnummer = docent.Rnummer,
                 Voornaam = docent.Voornaam,
                 Achternaam = docent.Achternaam,

@@ -68,6 +68,12 @@ namespace Boekingssysteem.Controllers
         {
             CustomUser docent = await _userManager.FindByEmailAsync(User.Identity.Name);
 
+            if (!ModelState.IsValid)
+            {
+                vm.Afwezigheden = _context.Afwezigheden.Where(a => a.Rnummer == docent.Id).ToList();
+                return View("Index", vm);
+            }
+
             try
             {
                 Afwezigheid afwezigheid;
