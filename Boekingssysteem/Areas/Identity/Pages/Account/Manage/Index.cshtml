@@ -11,13 +11,15 @@
     <div class="col-md-6">
         <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Input.Rnummer"/>
             <div class="form-group">
                 <label asp-for="Username"></label>
                 <input asp-for="Username" class="form-control" disabled />
             </div>
             <div class="row formRow">
                 <div class="form-group col-md-6">
-                    <input type="text" disabled class="form-control" id="inputRnummer" asp-for="Input.Rnummer" class="form-control" />
+                    <label asp-for="Input.Rnummer"></label>
+                    <input disabled class="form-control" id="inputRnummer" asp-for="Input.Rnummer" class="form-control" />
                     <span asp-validation-for="Input.Rnummer" class="text-danger"></span>
                 </div>
             </div>
