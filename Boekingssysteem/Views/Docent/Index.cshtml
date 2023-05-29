@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4" style="text-align:center">
-        <h5>Status wijzigen</h5>
+        <h5>Status</h5>
         <a asp-controller="Docent" asp-action="StatusWijzigen" type="button" id="statusBtn" class="btn @Model.GetButtonColor()">@Model.GetStatus()</a>
     </div>
 
@@ -26,21 +26,21 @@
                 <input type="hidden" asp-for="AfwezigheidId" id="afwezigheidId" />
                 <input type="hidden" asp-for="DocentId" />
                 <div asp-validation-summary="ModelOnly" class="text-danger" />
-                <div class="row formRow col-6">
+                <div class="row formRow col-10">
                     <div class="form-group">
                         <label class="form-label" for="beginDatum">Begindatum</label>
                         <input type="date" class="form-control" id="beginDatum" asp-for="BeginDatum" class="form-control" />
                         <span asp-validation-for="BeginDatum" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="row formRow col-6">
+                <div class="row formRow col-10">
                     <div class="form-group">
                         <label class="form-label" for="eindDatum">Einddatum</label>
                         <input type="date" class="form-control" id="eindDatum" asp-for="EindDatum" class="form-control" />
                         <span asp-validation-for="EindDatum" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="row formRow col-6">
+                <div class="row formRow col-10">
                     <div class="form-group">
                         <label class="form-label" for="opmerking">Opmerking</label>
                         <input type="text" class="form-control" id="opmerking" asp-for="Opmerking" class="form-control" />
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8" style="margin-top:40px">
         <table class="table table-striped">
             <thead>
                 <tr>
