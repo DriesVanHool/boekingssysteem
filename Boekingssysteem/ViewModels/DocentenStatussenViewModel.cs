@@ -17,6 +17,7 @@ namespace Boekingssysteem.ViewModels
         [Required]
         public string Email { get; set; }
         public bool? Status { get; set; }
+        public string Zoekterm { get; set; }
 
         public List<CustomUser> Docenten { get; set; }
     }

@@ -72,6 +72,23 @@ namespace Boekingssysteem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DocentenStatussen(GebruikerOverviewViewModel vm)
+        {
+            List<CustomUser> gebruikers = (List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent");
+            if (string.IsNullOrEmpty(vm.Zoekterm))
+            {
+                vm.Gebruikers = gebruikers;
+            }
+            else
+            {
+                vm.Gebruikers = gebruikers.Where(g => g.Voornaam.ToLower().Contains(vm.Zoekterm.ToLower()) || g.Achternaam.ToLower().Contains(vm.Zoekterm.ToLower())).ToList();
+            }
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DocentenStatussen(string id, DocentenStatussenViewModel vm)
         {
            if (id != vm.Rnummer)

@@ -10,6 +10,9 @@ using Boekingssysteem.ViewModels;
 using Boekingssysteem.Data;
 using Microsoft.AspNetCore.Identity;
 using Boekingssysteem.Areas.Identity.Data;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore;
 
 namespace Boekingssysteem.Controllers
 {
@@ -29,11 +32,37 @@ namespace Boekingssysteem.Controllers
         {
             IndexViewModel vm = new IndexViewModel()
             {
-                Docenten = (List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent")
+                Docenten = (List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent"),
+                Richtingen = _context.Richtingen.ToList()
             };
 
             return View(vm);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(IndexViewModel vm)
+        {
+            List<CustomUser> gebruikers =(List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent");
+            vm.Richtingen = _context.Richtingen.Include(r=>r.DocentRichtingen).ToList();
+            if (string.IsNullOrEmpty(vm.Zoekterm))
+            {
+                vm.Docenten = gebruikers;
+            }
+            else
+            {
+                vm.Docenten = gebruikers.Where(g => g.Voornaam.ToLower().Contains(vm.Zoekterm.ToLower()) || g.Achternaam.ToLower().Contains(vm.Zoekterm.ToLower())).ToList();
+            }
+
+            if (vm.RichtingId>0)
+            {
+                vm.Docenten = vm.Docenten.Where(d=>d.DocentRichtingen.Select(d=>d.RichtingId).Contains(vm.RichtingId)).ToList();
+            }
+
+            return View(vm);
+        }
+
 
         public IActionResult Privacy()
         {

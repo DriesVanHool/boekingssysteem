@@ -7,21 +7,28 @@
     <div class="col-md-6">
         <h1>@ViewData["Title"]</h1>
     </div>
-    <div class="col-md-3 formRow">
+    <form method="post" asp-action="Index">
+     <div class="col-md-3 formRow">
         <div class="form-group">
-            <select class="form-select" id="exampleSelect1">
-            <option>Richtingen</option>
-            <option>Programmeren</option>
-            <option>Netwerken</option>
-            </select>
+                <select asp-for="RichtingId" class="form-select" name="RichtingId">
+                    <option value="0"></option>
+                    @if (Model.Richtingen != null)
+                    {
+                            @foreach (var richting in Model.Richtingen)
+                            {
+                                    <option value="@richting.RichtingId">@richting.Naam</option>
+                            }
+                    }
+                </select>
         </div>
      </div>
     <div class="col-md-3 mb-4 formRow">
         <div class="input-group">
-            <input class="form-control me-sm-2" type="search" placeholder="Zoek op naam">
-            <button type="button" class="btn btn-primary input-group-append"><i class="fa fa-search"></i></button>
+            <input asp-for="Zoekterm" name="Zoekterm" class="form-control me-sm-2" type="search" placeholder="Zoek op naam">
+            <button type="submit" class="btn btn-primary input-group-append"><i class="fa fa-search"></i></button>
         </div>
     </div>
+    </form>
     <div class="row d-flex justify-content-center">
 
     @foreach (var docent in Model.Docenten )
