@@ -8,7 +8,7 @@
         <h1>@ViewData["Title"]</h1>
     </div>
     <div class="col-md-3"></div>
-    <form method="post" asp-action="Docenten">
+    <form method="post" asp-controller="Admin" asp-action="StatussenFilteren">
         <div class="col-md-3 mb-4 formRow">
             <div class="input-group">
                 <input asp-for="Zoekterm" name="Zoekterm" class="form-control me-sm-2" type="search" placeholder="Zoek op naam">

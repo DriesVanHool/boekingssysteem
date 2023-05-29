@@ -70,21 +70,22 @@ namespace Boekingssysteem.Controllers
             return View(vm);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("StatussenFilteren")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DocentenStatussen(GebruikerOverviewViewModel vm)
+        public async Task<IActionResult> DocentenStatussen(DocentenStatussenViewModel vm)
         {
             List<CustomUser> gebruikers = (List<CustomUser>)await _userManager.GetUsersInRoleAsync("docent");
             if (string.IsNullOrEmpty(vm.Zoekterm))
             {
-                vm.Gebruikers = gebruikers;
+                vm.Docenten = gebruikers;
             }
             else
             {
-                vm.Gebruikers = gebruikers.Where(g => g.Voornaam.ToLower().Contains(vm.Zoekterm.ToLower()) || g.Achternaam.ToLower().Contains(vm.Zoekterm.ToLower())).ToList();
+                vm.Docenten = gebruikers.Where(g => g.Voornaam.ToLower().Contains(vm.Zoekterm.ToLower()) || g.Achternaam.ToLower().Contains(vm.Zoekterm.ToLower())).ToList();
             }
 
-            return View(vm);
+            return View(nameof(DocentenStatussen), vm);
+
         }
 
         [HttpPost]
@@ -120,38 +121,6 @@ namespace Boekingssysteem.Controllers
 
             return RedirectToAction(nameof(DocentenStatussen));
         }
-
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ToevoegenDocent(ToevoegenDocentViewModel vm) 
-        {
-            if (!string.IsNullOrEmpty(vm.Rnummer) &&  _userManager.Users.Where(g => g.Rnummer.ToLower() == vm.Rnummer.ToLower()).Count() > 0)
-            {
-                ModelState.AddModelError("Rnummer", "Rnummer bestaat al");
-            }
-            if (ModelState.IsValid)
-            {
-                _context.Add(new Gebruiker()
-                {
-                    Rnummer= vm.Rnummer,
-                    Voornaam = vm.Voornaam,
-                    Achternaam = vm.Achternaam,
-                    Email= vm.Email,
-                    RolId= 2,
-                });
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Docenten));
-            }
-
-            return View(vm);
-        }
-
-
-        [HttpGet]
-        public IActionResult ToevoegenDocent()
-        {
-            return View();
-        }*/
 
         [HttpPost]
         [ValidateAntiForgeryToken]
