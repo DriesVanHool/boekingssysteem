@@ -4,30 +4,34 @@
     ViewData["Title"] = "Docenten";
 }
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" style="margin-bottom:0px">
         <h1>@ViewData["Title"]</h1>
     </div>
     <form method="post" asp-action="Index">
-     <div class="col-md-3 formRow">
-        <div class="form-group">
-                <select asp-for="RichtingId" class="form-select" name="RichtingId">
-                    <option value="0"></option>
-                    @if (Model.Richtingen != null)
-                    {
+        <div class="row" style="margin-top:-25px">
+            <div class="col-md-3 formRow">
+                <div class="form-group">
+                    <select asp-for="RichtingId" class="form-select" name="RichtingId">
+                        <option value="0">Alle richtingen</option>
+                        @if (Model.Richtingen != null)
+                        {
                             @foreach (var richting in Model.Richtingen)
                             {
-                                    <option value="@richting.RichtingId">@richting.Naam</option>
+                                <option value="@richting.RichtingId">@richting.Naam</option>
                             }
-                    }
-                </select>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4 formRow">
+                <div class="form-group input-group">
+                    <input asp-for="Zoekterm" name="Zoekterm" class="form-control me-sm-2" type="search" placeholder="Zoek op naam">
+                    <button type="submit" class="btn btn-primary input-group-append"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
         </div>
-     </div>
-    <div class="col-md-3 mb-4 formRow">
-        <div class="input-group">
-            <input asp-for="Zoekterm" name="Zoekterm" class="form-control me-sm-2" type="search" placeholder="Zoek op naam">
-            <button type="submit" class="btn btn-primary input-group-append"><i class="fa fa-search"></i></button>
-        </div>
-    </div>
+
     </form>
     <div class="row d-flex justify-content-center">
 

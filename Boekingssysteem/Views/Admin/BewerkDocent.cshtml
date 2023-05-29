@@ -15,12 +15,9 @@
             <input type="hidden" asp-for="Rnummer" />
             <div asp-validation-summary="ModelOnly" class="text-danger"/>
             <div class="row formRow">
-                <div class="form-group col-md-6">
+                <div class="form-group">
                     <input type="text" disabled class="form-control" id="inputRnummer" asp-for="Rnummer" class="form-control" />
                     <span asp-validation-for="Rnummer" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6 align-bottom">
-                    <button type="button" class="btn btn-outline-primary w-100">Richtingen</button>
                 </div>
             </div>
             <div class="row formRow">
@@ -37,7 +34,7 @@
             </div>
             <div class="form-group formRow">
                 <label asp-for="Email" class="control-label">@Html.DisplayNameFor(model => this.Model.Email)</label>
-                <input type="email" class="form-control" asp-for="Email" class="form-control placeholder=" rnummer@thomasmore.be"" />
+                <input disabled type="email" class="form-control" asp-for="Email" class="form-control placeholder=" rnummer@thomasmore.be"" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <br>

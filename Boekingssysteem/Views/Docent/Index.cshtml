@@ -21,33 +21,35 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Afwezigheden" method="post" class="form-inline justify-content-center">
-            <input type="hidden" asp-for="AfwezigheidId" id="afwezigheidId" />
-            <input type="hidden" asp-for="DocentId" />
-            <div asp-validation-summary="ModelOnly" class="text-danger"/>
-            <div class="row formRow">
-                <div class="form-group">
-                    <label class="form-label" for="beginDatum">Begindatum</label>
-                    <input type="date" class="form-control" id="beginDatum" asp-for="BeginDatum" class="form-control" />
-                    <span asp-validation-for="BeginDatum" class="text-danger"></span>
+        <div class="row">
+            <form asp-action="Afwezigheden" method="post" class="form-inline justify-content-center">
+                <input type="hidden" asp-for="AfwezigheidId" id="afwezigheidId" />
+                <input type="hidden" asp-for="DocentId" />
+                <div asp-validation-summary="ModelOnly" class="text-danger" />
+                <div class="row formRow col-6">
+                    <div class="form-group">
+                        <label class="form-label" for="beginDatum">Begindatum</label>
+                        <input type="date" class="form-control" id="beginDatum" asp-for="BeginDatum" class="form-control" />
+                        <span asp-validation-for="BeginDatum" class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="row formRow">
-                <div class="form-group">
-                    <label class="form-label" for="eindDatum">Einddatum</label>
-                    <input type="date" class="form-control" id="eindDatum" asp-for="EindDatum" class="form-control" />
-                    <span asp-validation-for="EindDatum" class="text-danger"></span>
+                <div class="row formRow col-6">
+                    <div class="form-group">
+                        <label class="form-label" for="eindDatum">Einddatum</label>
+                        <input type="date" class="form-control" id="eindDatum" asp-for="EindDatum" class="form-control" />
+                        <span asp-validation-for="EindDatum" class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="row formRow">
-                <div class="form-group">
-                    <label class="form-label" for="opmerking">Opmerking</label>
-                    <input type="text" class="form-control" id="opmerking" asp-for="Opmerking" class="form-control" />
+                <div class="row formRow col-6">
+                    <div class="form-group">
+                        <label class="form-label" for="opmerking">Opmerking</label>
+                        <input type="text" class="form-control" id="opmerking" asp-for="Opmerking" class="form-control" />
+                    </div>
                 </div>
-            </div>
-            <br>
-            <input type="submit" class="btn btn-primary" value="Bevestig"/>
-        </form>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Bevestig" />
+            </form>
+        </div>
     </div>
 
     <div class="col-md-8">
