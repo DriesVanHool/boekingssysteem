@@ -19,25 +19,25 @@
             <div class="row formRow">
                 <div class="form-group col-md-6">
                     <label asp-for="Input.Rnummer"></label>
-                    <input disabled class="form-control" id="inputRnummer" asp-for="Input.Rnummer" class="form-control" />
+                    <input disabled class="form-control" id="inputRnummer" asp-for="Input.Rnummer" />
                     <span asp-validation-for="Input.Rnummer" class="text-danger"></span>
                 </div>
             </div>
             <div class="row formRow">
                 <div class="form-group col-md-6">
                     <label asp-for="Input.Voornaam" class="control-label"></label>
-                    <input type="text" class="form-control" asp-for="Input.Voornaam" class="form-control" />
+                    <input type="text" class="form-control" asp-for="Input.Voornaam" />
                     <span asp-validation-for="Input.Voornaam" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6" style="display: inline-block">
                     <label asp-for="Input.Achternaam" class="control-label"></label>
-                    <input type="text" class="form-control" asp-for="Input.Achternaam" class="form-control" />
+                    <input type="text" class="form-control" asp-for="Input.Achternaam" />
                     <span asp-validation-for="Input.Achternaam" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group formRow">
                 <label asp-for="Input.Email" class="control-label">Email</label>
-                <input type="email" class="form-control" asp-for="Input.Email" class="form-control placeholder=" rnummer@thomasmore.be"" />
+                <input type="email" class="form-control" asp-for="Input.Email" placeholder="rnummer@thomasmore.be" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
